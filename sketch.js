@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw() {
-  background("green");
+  background("bluesteel");
   textSize(32);
   fill(255);
   text("hi", 200, 200);

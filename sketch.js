@@ -12,22 +12,28 @@ let rings = [];
 let numRing = 5;
 let fonts = [];
 
+function preload() {
+  // load FaceMesh model (p5 v2 method)
+  faceMesh =  ml5.faceMesh(options);
+
+}
+
 function loadsomeFonts() {
   fonts[0] = "Orbitron";
   fonts[1] = "Cascadia";
   fonts[2] = "Buenard";
 }
 
-async function setup() {
+ function setup() {
   createCanvas(640, 480);
+
+  
   // Create the webcam video and hide it
   video = createCapture(VIDEO, {flipped: true});
   video.size(640, 480);
   video.hide();
 
-  // load FaceMesh model (p5 v2 method)
-  faceMesh = await ml5.faceMesh(options);
-
+  
   // Start detecting faces from the webcam video
   faceMesh.detectStart(video, gotFaces);
 
